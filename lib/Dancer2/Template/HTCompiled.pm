@@ -20,18 +20,6 @@ has '+engine' => (
 sub _build_engine {
     'HTML::Template::Compiled'
 }
-#    my ($self) = @_;
-#
-#    my %config = %{ $self->config };
-#
-#    # Dancer2 inject a couple options without asking; Text::Xslate protests:
-#    delete $config{environment};
-#    if ( my $location = delete $config{location} ) {
-#        $config{path} //= [$location];
-#    }
-#
-#    return Text::Xslate->new(%config);
-#}
 
 sub render {
     my ($self, $tmpl, $vars) = @_;
@@ -39,9 +27,8 @@ sub render {
     my %config = %{ $self->config };
     my $env = delete $config{environment};
     my $location = delete $config{location};
-    my $path = delete $config{path};
-    $path = "$location/$path" if defined $location;
-    $config{path} = $path;
+    $config{path} = File::Spec->catfile($location, $config{path})
+        if defined $location;
     my $htc = $self->engine;
     my $content = eval {
         my $t;
