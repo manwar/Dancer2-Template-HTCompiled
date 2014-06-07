@@ -1,0 +1,4 @@
+*.swp
+cover_db
+local
+Dancer2-Template-HTCompiled*
