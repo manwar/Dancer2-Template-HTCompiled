@@ -83,7 +83,7 @@ config.yaml:
       template:
         HTCompiled:
           path: "views"
-          case_sesnitive: 1
+          case_sensitive: 1
           default_escape: "HTML"
           loop_context_vars: 1
           tagstyle: ["-classic", "-comment", "-asp", "+tt"]
