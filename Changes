@@ -1,5 +1,8 @@
 Revision history for Dancer2::Template::HTCompiled
 
+0.002_001 2015-02-19 13:00:00 CET
+- fix test
+
 0.002 2014-06-07 23:49:00 CEST
 
 - fix typo, add changelog, prereqs, repository
