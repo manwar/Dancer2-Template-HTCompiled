@@ -1,6 +1,7 @@
 package Dancer2::Template::HTCompiled;
 use strict;
 use warnings;
+our $VERSION = '0.001'; # VERSION
 
 use Moo;
 use Carp qw/ croak /;
