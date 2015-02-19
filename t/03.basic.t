@@ -4,9 +4,9 @@ use Test::More tests => 4;
 use Data::Dumper;
 use Dancer2::Template::HTCompiled;
 
-my $path = File::Spec->catfile("t", "data");
 my $htc = Dancer2::Template::HTCompiled->new(config => {
-    path => $path,
+    path => 'data',
+    location => "t",
     tagstyle => [qw/ +tt /],
 });
 
@@ -16,11 +16,6 @@ my $param = {
 };
 my $out = $htc->render($template, $param);
 cmp_ok($out, '=~', qr{foo.*23}s, "render template file");
-$htc->config({
-    path => "data",
-    location => "t",
-    tagstyle => [qw/ +tt /],
-});
 $out = $htc->render($template, $param);
 cmp_ok($out, '=~', qr{foo.*23}s, "render template file with location");
 
